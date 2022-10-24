@@ -2,9 +2,7 @@
 //Теорема косинусов- ее я использую для нахождения углов в образоваашемся треугольнике:
 //a^2 = b^2 + c^2 -2bcCosA => cosA = (b^2+c^2-a^2)/ -2bc - где стороны b, c являются прилежащими углу катетами
 // Формула нахождения рассояния==формуле высоты треугольника:
-//    sin(a)+sin(b)
-// ab---------------   -  где АВ- это расстояние между точками описыващих прямую, a,b-углы противолежащие высоте.
-//     sin(a+b)
+//    h= AM * sin(A) или AB * sin(B)
 
 
 double ReadData(string message)
@@ -37,13 +35,10 @@ double CalculationOfTheAngleOfTheTriangle(double a, double b, double c)//В оп
 
 double angleA = CalculationOfTheAngleOfTheTriangle(lengthBM, lengthAM, lengthAB);
 double angleB = CalculationOfTheAngleOfTheTriangle(lengthAM, lengthAB, lengthBM);
-double angleM = CalculationOfTheAngleOfTheTriangle(lengthAB, lengthAM, lengthBM);
+double angleM = CalculationOfTheAngleOfTheTriangle(lengthAB, lengthAM, lengthBM);//просто добавил
 
-double GetHeigth(double c, double gamma, double alfa)
-{
-    return c*((Math.Sin(alfa)+Math.Sin(gamma))/Math.Sin(alfa+gamma));
-}
 
-double Heigth = GetHeigth(lengthAB, angleA, angleB);
+double heigth = lengthAM * Math.Sin(angleA);
+double heigth2 =  lengthBM * Math.Sin(angleB);
 
-Console.WriteLine($"РАсстояние от точки М до прямой АВ равно {Heigth:f2}");
+Console.WriteLine($"РАсстояние от точки М до прямой АВ равно {heigth:f2} или {heigth2:f2}");
